@@ -1,12 +1,16 @@
+const cors = require("cors");
 const express = require("express");
 const dotenv = require("dotenv").config();
 const errorHandler = require("./middleware/errorHandler");
 const connectDb = require("./config/dbConnection");
+
 const app = express();
 
 connectDb();
 //const port = process.env.PORT;
 const port = 5000;
+
+app.use(cors());
 
 // use middleware to accept data from client to server we need parser
 app.use(express.json());
